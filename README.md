@@ -5,8 +5,8 @@
 ### Pre-requisites
 
 1. Fork the repository.
-2. Create a feature branch named `feature/FRAMEWORK_FIRSTNAME-LASTNAME`, e.g. `feature/KOTLIN_SEBASTIAN-PERSSON`.
-3. Create an Android (Kotlin) or iOS (Swift) application in the created repository.
+2. Create an Android (Kotlin) or iOS (Swift) application in the forked repository.
+3. Name the branch `feature/FRAMEWORK_FIRSTNAME-LASTNAME`, e.g. `feature/KOTLIN_SEBASTIAN-PERSSON`.
 
 ### Task
 
@@ -18,7 +18,7 @@ Implement a simple search and select history function according to the Figma lin
 4. When making a selection, the search value should be saved with a date/timestamp beneath the search box, as a search history.
 5. The page should be responsive, adapting to all devices for either Android or iOS (depending on your test).
 6. The search history should be persisted in locally on the phone. So when the app is restarted it shall still be visible.
-7. When you're done - push your branch and let us know when it's done with a pull request.
+7. When you're done - push your branch to your *own Github* and and let us know when it's done with a pull request.
 
 Extras:
 * Add unit tests to prove that you're capable of doing so.

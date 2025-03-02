@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+ ASSAAbloyTest
+
+ //  Created by Hripsime Martirosyan on 2025-03-01.
+ //  Copyright © 2025 hripsimem. All rights reserved.
+*/
+
+network.error.title    = "Ups!";
+network.error.message  = "Networking issue";
+error.message.ok.title = "Ok";
+tenth.character.info   = "Tenth character is - ";
+address                = "Address";
+show.more              = "Show more";
+history                = "History";
+back                   = "Back";
+brewery.details        = "Brewery details";
+name                   = "Name";
+phone                  = "Phone";
+state                  = "State";
+search.title           = "Search for a brewery";
+search                 = "Search...";

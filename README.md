@@ -12,11 +12,10 @@ The project is built using native Swift with a minimum iOS version of iOS 18.2 I
 * `Mock data support`: Easily inject mock data and use local JSON instead of actual network calls. This is used for unit testing.
 
 ### Persistence
-* Built with `Realm` 
+* Built with native `SwiftData` 
 * A `simple iOS Data Persistence` which is saving selected search result
 
 ### Usage
-* `Download` the zip 
+* `Download` the zip or clone repo
 * `Open the project` in Xcode 16.2.
-* `Update SPM` for getting the Realm
 * `Run` the project on an iOS 18+ simulator or device.

@@ -23,4 +23,16 @@ final class SearchBreweryViewModelTests: XCTestCase {
         
         XCTAssertEqual(sut.breweryList.count, 5)
     }
+    
+    func testUpdateDate() {
+        sut.fetchData(with: "brew")
+        wait(milliseconds: 300)
+        
+        if let item = sut.breweryList.first {
+            XCTAssertNil(item.dateString)
+
+            let updatedItem = sut.updateDate(item: item)
+            XCTAssertNotNil(updatedItem.dateString)
+        }
+    }
 }

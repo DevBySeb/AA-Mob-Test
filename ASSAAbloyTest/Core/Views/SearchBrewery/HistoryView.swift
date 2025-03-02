@@ -6,13 +6,10 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HistoryView: View {
-    private let list: [Brewery]
-    
-    init(list: [Brewery]) {
-        self.list = list
-    }
+    @Query(sort: \Brewery.name) var history: [Brewery]
     
     var body: some View {
         ScrollView {
@@ -21,8 +18,8 @@ struct HistoryView: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding(.bottom)
-                
-                ForEach(list, id: \.self) { result in
+
+                ForEach(history, id: \.id) { result in
                     NavigationLink(destination: SearchDetailsView(brewery: result)) {
                         HStack {
                             VStack(alignment: .leading) {
@@ -45,5 +42,6 @@ struct HistoryView: View {
             }
             .padding()
         }
+        .opacity(history.isEmpty ? 0 : 1)
     }
 }

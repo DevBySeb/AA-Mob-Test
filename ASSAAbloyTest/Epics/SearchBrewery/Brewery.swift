@@ -6,22 +6,22 @@
 //
 
 import Foundation
-import RealmSwift
+import SwiftData
 
-class Brewery: Object {
-    @Persisted(primaryKey: true) var id: String
-    @Persisted var name: String
-    @Persisted var country: String?
-    @Persisted var phone: String?
-    @Persisted var address: String?
-    @Persisted var city: String?
-    @Persisted var state: String?
-    @Persisted var street: String?
-    @Persisted var dateString: String?
+@Model
+final class Brewery {
+     @Attribute(.unique)
+     var id: String
+     var name: String
+     var country: String?
+     var phone: String?
+     var address: String?
+     var city: String?
+     var state: String?
+     var street: String?
+     var dateString: String?
 
-    convenience init(from model: BreweryInfo) {
-        self.init()
-        
+    init(from model: BreweryInfo) {
         self.id = model.id
         self.name = model.name
         self.country = model.country

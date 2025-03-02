@@ -6,31 +6,23 @@
 //
 
 import Foundation
-import RealmSwift
 import Combine
+import SwiftData
 
 final class SearchBreweryViewModel: ObservableObject {
     @Published var query = ""
     @Published private(set) var breweryList: [Brewery] = []
-    @Published private(set) var historyList: [Brewery] = []
     @Published private(set) var showMore: Bool = true
-    
+
     // MARK: Private members
     private let searchBreweryService: SearchBreweryService
     private var cancellables = Set<AnyCancellable>()
-    private var realm: Realm
     private var initialItemsCount = 5
     private let maxCount = 10
     
     public init(fetcher: DataFetcher = NetworkManager()) {
         self.searchBreweryService = SearchBreweryService(with: fetcher)
-        
-        do {
-            realm = try Realm()
-        } catch {
-            fatalError("Failed to initialize Realm: \(error)")
-        }
-        
+
         $query
             .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
             .sink { [weak self] newQuery in
@@ -56,6 +48,7 @@ final class SearchBreweryViewModel: ObservableObject {
                 }
             } catch {
                 // Error view need to be presented, missing in figma
+                print(error.localizedDescription)
             }
         }
     }
@@ -69,32 +62,15 @@ final class SearchBreweryViewModel: ObservableObject {
         }
     }
     
-    func saveItem(item: Brewery) {
+    func updateDate(item: Brewery) -> Brewery {
         let currentDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         let dateString = dateFormatter.string(from: currentDate)
         
-        do {
-            try realm.write {
-                item.dateString = dateString
-                
-                realm.add(item, update: .modified)
-            }
-        } catch {
-            print("Error adding/updating Brewery: \(error)")
-        }
-    }
-    
-    func fetchHistory() {
-        let list = realm.objects(Brewery.self)
-        let breweryList = Array(list)
+        item.dateString = dateString
         
-        if !breweryList.isEmpty {
-            Task { @MainActor in
-                self.historyList = breweryList
-            }
-        }
+        return item
     }
 }
 

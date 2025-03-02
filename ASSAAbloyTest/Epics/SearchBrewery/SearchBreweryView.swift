@@ -6,16 +6,20 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct SearchBreweryView: View {
-    @ObservedObject var viewModel = SearchBreweryViewModel()
+    @ObservedObject private var viewModel: SearchBreweryViewModel
+    @Environment(\.modelContext) var modelContext
+    @Query(sort: \Brewery.name) var history: [Brewery]
+    
+    init() {
+        self.viewModel = SearchBreweryViewModel()
+    }
     
     var body: some View {
         NavigationStack {
             setupScreen()
-        }
-        .onAppear() {
-            viewModel.fetchHistory()
         }
     }
     
@@ -38,13 +42,21 @@ struct SearchBreweryView: View {
                                    showMore: viewModel.showMore) {
                         viewModel.showAll()
                     } onBrewerySelected: { selected in
-                        viewModel.saveItem(item: selected)
+                        let item = viewModel.updateDate(item: selected)
+                        modelContext.insert(item)
+                        
+                        do {
+                            try modelContext.save()
+                        } catch {
+                            // Error view need to be presented, missing in figma
+                        }
                     }
                 } else {
-                    if !viewModel.historyList.isEmpty {
-                        HistoryView(list: viewModel.historyList)
+                    if !history.isEmpty {
+                        HistoryView()
                     }
                 }
+                
                 Spacer()
             }
         }
@@ -52,5 +64,7 @@ struct SearchBreweryView: View {
 }
 
 #Preview {
+    @Previewable @Environment(\.modelContext) var modelContext
+    
     SearchBreweryView()
 }

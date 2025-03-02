@@ -6,13 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		CCE6ECD62D74A531004DD447 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CCE6ECD52D74A531004DD447 /* RealmSwift */; };
-		CCE6ECD82D74A531004DD447 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CCE6ECD52D74A531004DD447 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		CCE6ECE32D74A6F1004DD447 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CCE6ECE22D74A6F1004DD447 /* RealmSwift */; };
-		CCE6ECE52D74A6F1004DD447 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CCE6ECE22D74A6F1004DD447 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		CC615FA92D749D8500796C0E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -37,7 +30,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CCE6ECD82D74A531004DD447 /* RealmSwift in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,7 +40,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CCE6ECE52D74A6F1004DD447 /* RealmSwift in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,7 +75,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCE6ECD62D74A531004DD447 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCE6ECE32D74A6F1004DD447 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +144,6 @@
 			);
 			name = ASSAAbloyTest;
 			packageProductDependencies = (
-				CCE6ECD52D74A531004DD447 /* RealmSwift */,
 			);
 			productName = ASSAAbloyTest;
 			productReference = CC615F972D749D8400796C0E /* ASSAAbloyTest.app */;
@@ -180,7 +168,6 @@
 			);
 			name = ASSAAbloyTestTests;
 			packageProductDependencies = (
-				CCE6ECE22D74A6F1004DD447 /* RealmSwift */,
 			);
 			productName = ASSAAbloyTestTests;
 			productReference = CC615FA82D749D8500796C0E /* ASSAAbloyTestTests.xctest */;
@@ -242,7 +229,6 @@
 			mainGroup = CC615F8E2D749D8400796C0E;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				CCE6ECD32D74A51D004DD447 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CC615F982D749D8400796C0E /* Products */;
@@ -632,30 +618,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		CCE6ECD32D74A51D004DD447 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		CCE6ECD52D74A531004DD447 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CCE6ECD32D74A51D004DD447 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
-		};
-		CCE6ECE22D74A6F1004DD447 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CCE6ECD32D74A51D004DD447 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CC615F8F2D749D8400796C0E /* Project object */;
 }

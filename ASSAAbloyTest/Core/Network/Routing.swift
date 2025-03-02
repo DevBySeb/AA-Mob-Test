@@ -22,7 +22,7 @@ protocol Routing {
 
 extension Routing {
     var baseURLString: String {
-        "https://api.openbrewerydb.org/breweries/search"
+        "https://api.openbrewerydb.org"
     }
     
     var method: RequestType {

@@ -19,6 +19,10 @@ public struct SearchBreweryParameters: Routing {
         .json
     }
     
+    var routPath: String {
+        "/breweries/search"
+    }
+    
     var queryParams: [String: String]? {
         ["page" : "1",
          "per_page" : itemsCount,

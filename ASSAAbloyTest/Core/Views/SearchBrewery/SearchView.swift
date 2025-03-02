@@ -18,11 +18,12 @@ struct SearchView: View {
         
         TextField("", text: $searchText,
                   prompt: Text("search".localized).foregroundColor(.gray))
-                        .padding(10)
+                        .padding()
                         .background(Color.black)
                         .foregroundColor(.white)
                         .bold()
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 2))
                         .cornerRadius(8)
+                        .padding(5)
     }
 }

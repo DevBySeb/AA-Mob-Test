@@ -61,8 +61,6 @@ struct DetailItemView: View {
         self.itemValue = itemValue
     }
     var body: some View {
-        Divider()
-
         HStack {
             Text(itemName)
                 .foregroundColor(.white)
@@ -70,8 +68,10 @@ struct DetailItemView: View {
             Text(itemValue)
                 .foregroundColor(.white)
                 .padding(.vertical, 5)
+            
         }
-
+        Divider()
+            .background(Color.white)
     }
 }
 

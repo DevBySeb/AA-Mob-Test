@@ -39,8 +39,11 @@ struct HistoryView: View {
                                 .foregroundColor(.white)
                         }
                     }
+                    Divider()
+                        .background(Color.white)
                 }
             }
+            .padding()
         }
     }
 }

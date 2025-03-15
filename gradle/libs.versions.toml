@@ -17,8 +17,8 @@ hilt-plugin-version = "2.44"
 coroutinesAndroid-version = "1.10.1"
 retrofit-version = "2.9.0"
 compose-bom-version = "2025.03.00"
-material3Android = "1.3.1"
 activityCompose-version = "1.9.3"
+kotlinCompilerExtensionVersion-version = "1.5.14"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -45,4 +45,5 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-version" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt-plugin-version" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin-version" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 

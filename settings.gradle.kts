@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "AA-Mob-Test"
 include(":app")
+include(":featureSearch")

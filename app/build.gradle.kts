@@ -26,6 +26,11 @@ android {
             )
         }
     }
+
+    buildFeatures {
+        compose = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_18
         targetCompatibility = JavaVersion.VERSION_18
@@ -39,7 +44,12 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.composeRuntime)
+    implementation(libs.composeUi)
+    implementation(libs.composeMaterial3)
+    implementation (libs.composeUiTooling)
+    implementation(libs.androidx.activity.compose)
 }

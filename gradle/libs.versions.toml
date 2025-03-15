@@ -6,23 +6,38 @@ compileSdk = "35"
 buildTools = "35.0.0"
 
 agp = "8.6.1"
-kotlin = "2.1.10"
+kotlin-version = "2.1.10"
 coreKtx = "1.15.0"
 junit = "4.13.2"
-junitVersion = "1.2.1"
-espressoCore = "3.6.1"
-appcompat = "1.7.0"
-material = "1.12.0"
+androidx-junit-version = "1.2.1"
+appcompat-version = "1.7.0"
+material-version = "1.12.0"
+hilt-version = "2.55"
+hilt-plugin-version = "2.44"
+coroutinesAndroid-version = "1.10.1"
+retrofit-version = "2.9.0"
+compose-bom-version = "2025.03.00"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-junit-version" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat-version" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material-version" }
+hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt-version" }
+hiltAndroidCompiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt-version" }
+hiltPlugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt-version" }
+coroutinesAndroid = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutinesAndroid-version" }
+coroutinesCore = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutinesAndroid-version" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit-version" }
+retrofitMoshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit-version" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom-version" }
+composeMaterial3 = { module = "androidx.compose.material3:material3" }
+composeUi = { module = "androidx.compose.ui:ui" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-version" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt-plugin-version" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin-version" }
 

@@ -6,6 +6,6 @@ import retrofit2.http.Path
 
 interface SearchBreweryEndpoint {
 
-    @GET("v1/breweries/autocomplete?per_page=5?query={search}&per_page=5")
-    suspend fun getBreweries(@Path("search") search: String): BreweryApiModel
+    @GET("v1/breweries/autocomplete?query={search}&per_page=5")
+    suspend fun getBreweries(@Path("search") search: String): List<BreweryApiModel>
 }

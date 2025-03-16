@@ -4,14 +4,21 @@ import aa.mob.test.api.utils.Constants.NETWORK_READ_TIMEOUT
 import aa.mob.test.api.utils.Constants.NETWORK_WRITE_TIMEOUT
 import android.content.Context
 import com.squareup.moshi.Moshi
+import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 import aa.mob.test.resources.R as ResR
+
+@Module
+@InstallIn(SingletonComponent::class)
+object RetrofitModule
 
 @Provides
 fun provideUrl(@ApplicationContext appContext: Context): String =

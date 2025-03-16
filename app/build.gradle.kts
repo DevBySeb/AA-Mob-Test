@@ -4,29 +4,12 @@ plugins {
     alias(libs.plugins.compose.compiler)
 }
 
+apply {
+    from("$rootDir/common-android-config.gradle")
+}
+
 android {
     namespace = "com.aa.mob.test"
-    compileSdk = libs.versions.compileSdk.get().toInt()
-
-    defaultConfig {
-        applicationId = "com.aa.mob.test"
-        minSdk = libs.versions.minSdk.get().toInt()
-        targetSdk = libs.versions.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
 
     buildFeatures {
         compose = true

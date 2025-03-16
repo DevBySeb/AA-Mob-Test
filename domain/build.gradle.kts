@@ -3,10 +3,12 @@ plugins {
     alias(libs.plugins.kotlin.android)
 }
 
+apply {
+    from("$rootDir/common-android-config.gradle")
+}
+
 android {
     namespace = "aa.mob.test.domain"
-    compileSdk = 34
-
     defaultConfig {
         minSdk = 29
 

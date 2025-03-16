@@ -19,10 +19,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             AATestTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
                 }
             }
         }
@@ -33,6 +29,5 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     AATestTheme {
-        Greeting("Android")
     }
 }

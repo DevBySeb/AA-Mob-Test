@@ -1,11 +1,11 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.hilt)
 }
 
 android {
-    namespace = "aa.mob.test.featureSearch"
+    namespace = "aa.mob.test.api"
     compileSdk = 34
 
     defaultConfig {
@@ -31,26 +31,16 @@ android {
     kotlinOptions {
         jvmTarget = "18"
     }
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-      //  kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtensionVersion.getVersion().get()
-    }
 }
 
 dependencies {
-
+    implementation(project(":resourcees"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.retrofit)
+    implementation(libs.retrofitMoshi)
+    implementation(libs.hilt)
+    implementation(libs.hiltAndroidCompiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
-    implementation(platform(libs.compose.bom))
-    implementation(libs.composeRuntime)
-    implementation(libs.composeUi)
-    implementation(libs.composeMaterial3)
-    implementation (libs.composeUiTooling)
-    implementation(libs.androidx.activity.compose)
 }

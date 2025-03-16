@@ -5,11 +5,9 @@ plugins {
 }
 
 android {
-    namespace = "com.aa.mob.test"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.aa.mob.test"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
@@ -33,7 +31,8 @@ android {
     }
 
     composeOptions {
-        //     kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtensionVersion.version
+        kotlinCompilerExtensionVersion =
+            libs.versions.kotlinCompilerExtensionVersion.getVersion().get()
     }
 
     compileOptions {
@@ -47,14 +46,7 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
-    implementation(platform(libs.compose.bom))
-    implementation(libs.composeRuntime)
-    implementation(libs.composeUi)
-    implementation(libs.composeMaterial3)
-    implementation(libs.composeUiTooling)
-    implementation(libs.androidx.activity.compose)
+
 }

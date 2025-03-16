@@ -1,11 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.compose.compiler)
 }
 
 android {
-    namespace = "aa.mob.test.featureSearch"
+    namespace = "aa.mob.test.resources"
     compileSdk = 34
 
     defaultConfig {
@@ -25,19 +24,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_18
-        targetCompatibility = JavaVersion.VERSION_18
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "18"
-    }
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-      //  kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtensionVersion.getVersion().get()
+        jvmTarget = "1.8"
     }
 }
 
@@ -45,12 +36,8 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
-    implementation(platform(libs.compose.bom))
-    implementation(libs.composeRuntime)
-    implementation(libs.composeUi)
-    implementation(libs.composeMaterial3)
-    implementation (libs.composeUiTooling)
-    implementation(libs.androidx.activity.compose)
+    androidTestImplementation(libs.androidx.espresso.core)
 }

@@ -5,6 +5,7 @@ import aa.mob.test.api.model.BreweryApiModel
 import aa.mob.test.domain.model.BreweryModel
 import aa.mob.test.domain.repository.BreweryRepository
 import aa.mob.test.domain.utils.Mapper
+import android.util.Log
 import javax.inject.Inject
 
 class DefaultBreweryRepository @Inject constructor(
@@ -14,5 +15,6 @@ class DefaultBreweryRepository @Inject constructor(
 
     override suspend fun getSuggestedBreweries(
         search: String,
-    ): List<BreweryModel> = breweryEndpoint.getBreweries(search).map { mapper.map(it) }
+        page: Int
+    ): List<BreweryModel> = breweryEndpoint.getBreweries(search, page).map { mapper.map(it) }.also { Log.d("xddd",it.toString()) }
 }

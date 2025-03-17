@@ -4,5 +4,5 @@ import aa.mob.test.domain.model.BreweryModel
 
 interface BreweryRepository {
 
-    suspend fun getSuggestedBreweries(search: String): List<BreweryModel>
+    suspend fun getSuggestedBreweries(search: String, page: Int): List<BreweryModel>
 }

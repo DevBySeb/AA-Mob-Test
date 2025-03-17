@@ -1,6 +1,7 @@
 package aa.mob.test.navigation
 
-import aa.mob.test.featureSearch.ui.SearchScreen
+import aa.mob.test.featureSearch.ui.details.DetailsScreen
+import aa.mob.test.featureSearch.ui.search.SearchScreen
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -11,6 +12,13 @@ fun AppNavHost() {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = Destination.Search.path) {
-        composable(Destination.Search.path) { SearchScreen() }
+        composable(Destination.Search.path) {
+            SearchScreen {
+                navController.navigate(Destination.Details(it).getUri())
+            }
+        }
+        composable("details/{id}") {
+            DetailsScreen()
+        }
     }
 }

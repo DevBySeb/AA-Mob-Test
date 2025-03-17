@@ -46,4 +46,5 @@ dependencies {
     implementation(libs.composeMaterial3)
     implementation(libs.composeUiTooling)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.hiltNavigationCompose)
 }

@@ -1,7 +1,7 @@
-package aa.mob.test.featureSearch.factory
+package aa.mob.test.featureSearch.factory.search
 
-import aa.mob.test.featureSearch.model.SearchScreenUiModel
-import aa.mob.test.featureSearch.state.SearchScreenState
+import aa.mob.test.featureSearch.model.search.SearchScreenUiModel
+import aa.mob.test.featureSearch.state.search.SearchScreenState
 import javax.inject.Inject
 
 class DefaultSearchScreenStateFactory @Inject constructor(): SearchScreenState.Factory {

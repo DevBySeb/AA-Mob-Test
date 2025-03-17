@@ -19,4 +19,5 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.retrofit)
     implementation(libs.retrofitMoshi)
+    implementation(libs.moshiKotlin)
 }

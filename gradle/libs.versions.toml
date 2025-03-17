@@ -19,10 +19,10 @@ retrofit-version = "2.9.0"
 hiltCompose-version = "1.2.0"
 compose-bom-version = "2025.03.00"
 activityCompose-version = "1.10.1"
-kotlinCompilerExtension-version = "1.5.14"
 ksp-version = "2.1.10-1.0.29"
 espressoCoreVersion = "3.6.1"
 navigationComposeVersion = "2.8.9"
+moshi-version = "1.15.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -33,11 +33,9 @@ material = { group = "com.google.android.material", name = "material", version.r
 hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt-version" }
 hiltAndroidCompiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt-version" }
 hiltPlugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt-version" }
-hiltKsp = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltCompose-version" }
 hiltNavigationCompose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-compose-navigation-version" }
-coroutinesAndroid = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutinesAndroid-version" }
-coroutinesCore = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutinesAndroid-version" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit-version" }
+moshiKotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi-version" }
 retrofitMoshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit-version" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom-version" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose-version" }

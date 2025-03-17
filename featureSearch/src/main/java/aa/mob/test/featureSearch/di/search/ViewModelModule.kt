@@ -1,13 +1,13 @@
-package aa.mob.test.featureSearch.di
+package aa.mob.test.featureSearch.di.search
 
-import aa.mob.test.featureSearch.event.handler.DefaultSearchEventHandler
-import aa.mob.test.featureSearch.event.handler.SearchEventHandler
-import aa.mob.test.featureSearch.factory.DefaultSearchScreenStateFactory
-import aa.mob.test.featureSearch.factory.DefaultSearchScreenUiModelFactory
-import aa.mob.test.featureSearch.model.SearchScreenUiModel
-import aa.mob.test.featureSearch.state.SearchScreenState
-import aa.mob.test.featureSearch.state.provider.DefaultSearchScreenStateProvider
-import aa.mob.test.featureSearch.state.provider.SearchScreenStateProvider
+import aa.mob.test.featureSearch.event.search.handler.DefaultSearchEventHandler
+import aa.mob.test.featureSearch.event.search.handler.SearchEventHandler
+import aa.mob.test.featureSearch.factory.search.DefaultSearchScreenStateFactory
+import aa.mob.test.featureSearch.factory.search.DefaultSearchScreenUiModelFactory
+import aa.mob.test.featureSearch.model.search.SearchScreenUiModel
+import aa.mob.test.featureSearch.state.search.SearchScreenState
+import aa.mob.test.featureSearch.state.search.provider.DefaultSearchScreenStateProvider
+import aa.mob.test.featureSearch.state.search.provider.SearchScreenStateProvider
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

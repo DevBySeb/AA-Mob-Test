@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
    <string name="base_api_url">https://api.openbrewerydb.org/</string>
-   <string name="search_for_brewery">Search for brewery</string>
+   <string name="search_for_brewery">Search for a brewery</string>
+   <string name="show_more_button">Show more</string>
+   <string name="tip_text">Search…</string>
+   <string name="details_beverages">Beverages</string>
+   <string name="details_address">Address</string>
 </resources>

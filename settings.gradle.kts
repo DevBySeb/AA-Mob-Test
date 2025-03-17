@@ -17,12 +17,6 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
-    versionCatalogs {
-        create("lol") {
-            from(files("gradle/lol.versions.toml"))
-        }
-    }
-
 }
 
 rootProject.name = "AA-Mob-Test"

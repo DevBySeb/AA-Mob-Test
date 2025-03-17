@@ -30,8 +30,14 @@ android {
 
 dependencies {
 
+    implementation(project(":featureSearch"))
+    implementation(project(":domain"))
+    implementation(project(":resourcees"))
+    implementation(project(":api"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     implementation(platform(libs.compose.bom))

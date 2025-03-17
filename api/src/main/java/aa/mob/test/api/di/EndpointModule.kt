@@ -12,6 +12,6 @@ import retrofit2.Retrofit
 object EndpointModule {
 
     @Provides
-    fun provideSearchBreweryEndpoint(retrofit: Retrofit) =
+    fun provideSearchBreweryEndpoint(retrofit: Retrofit): SearchBreweryEndpoint =
         retrofit.create(SearchBreweryEndpoint::class.java)
 }

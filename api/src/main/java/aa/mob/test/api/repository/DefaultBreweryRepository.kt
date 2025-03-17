@@ -7,14 +7,12 @@ import aa.mob.test.domain.repository.BreweryRepository
 import aa.mob.test.domain.utils.Mapper
 import javax.inject.Inject
 
-internal class DefaultBreweryRepositoryImpl @Inject constructor(
+class DefaultBreweryRepository @Inject constructor(
     private val breweryEndpoint: SearchBreweryEndpoint,
     private val mapper: Mapper<BreweryApiModel, BreweryModel>
-) :
-    BreweryRepository {
+) : BreweryRepository {
 
     override suspend fun getSuggestedBreweries(
         search: String,
-        pageOffset: Int
     ): List<BreweryModel> = breweryEndpoint.getBreweries(search).map { mapper.map(it) }
 }

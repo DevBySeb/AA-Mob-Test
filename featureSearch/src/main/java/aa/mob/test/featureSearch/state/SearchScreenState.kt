@@ -4,6 +4,10 @@ import aa.mob.test.domain.model.BreweryModel
 import aa.mob.test.featureSearch.model.SearchScreenUiModel
 
 data class SearchScreenState(
-    private val suggestedBreweries: List<BreweryModel>,
-    private val uiModel: SearchScreenUiModel
-)
+    val suggestedBreweries: List<BreweryModel>,
+    val uiModel: SearchScreenUiModel
+) {
+    interface Factory {
+        fun createEmpty(emptyUiModel: SearchScreenUiModel): SearchScreenState
+    }
+}

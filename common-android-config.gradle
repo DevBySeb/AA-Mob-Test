@@ -1,3 +1,6 @@
+apply plugin: 'kotlin-android'
+apply plugin: 'com.google.devtools.ksp'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdk = libs.versions.compileSdk.get().toInteger()
@@ -31,10 +34,8 @@ android {
 }
 
 dependencies {
-
+    ksp libs.hiltAndroidCompiler
     implementation(libs.hilt)
-    implementation(libs.hiltAndroidCompiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
-
 }

@@ -21,13 +21,12 @@ object Type {
         lineHeight = 28.sp,
         letterSpacing = 0.sp
     )
-    /*
-labelSmall = TextStyle(
-    fontFamily = FontFamily.Default,
-    fontWeight = FontWeight.Medium,
-    fontSize = 11.sp,
-    lineHeight = 16.sp,
-    letterSpacing = 0.5.sp
-)
-*/
+
+  val bodyNormal = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 14.sp,
+        lineHeight = 18.sp,
+    )
+
 }

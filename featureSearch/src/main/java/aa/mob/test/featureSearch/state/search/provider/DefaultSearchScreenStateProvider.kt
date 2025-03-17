@@ -1,5 +1,6 @@
 package aa.mob.test.featureSearch.state.search.provider
 
+import aa.mob.test.featureSearch.di.search.Search
 import aa.mob.test.featureSearch.model.search.SearchScreenUiModel
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.CoroutineScope
@@ -12,7 +13,7 @@ import javax.inject.Inject
 
 @ViewModelScoped
 class DefaultSearchScreenStateProvider @Inject constructor(
-    viewModelScope: CoroutineScope,
+    @Search viewModelScope: CoroutineScope,
     uiModelFactory: SearchScreenUiModel.Factory,
 ) : SearchScreenStateProvider {
 

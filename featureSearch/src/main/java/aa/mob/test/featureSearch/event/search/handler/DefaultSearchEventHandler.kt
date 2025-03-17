@@ -1,6 +1,7 @@
 package aa.mob.test.featureSearch.event.search.handler
 
 import aa.mob.test.domain.useCase.GetSuggestedBreweriesUseCase
+import aa.mob.test.featureSearch.di.search.Search
 import aa.mob.test.featureSearch.event.search.SearchScreenEvent
 import aa.mob.test.featureSearch.state.search.provider.SearchScreenStateProvider
 import dagger.hilt.android.scopes.ViewModelScoped
@@ -12,7 +13,7 @@ import javax.inject.Inject
 class DefaultSearchEventHandler @Inject constructor(
     private val searchScreenStateProvider: SearchScreenStateProvider,
     private val getSuggestedBreweriesUseCase: GetSuggestedBreweriesUseCase,
-    private val viewModelScope: CoroutineScope
+    @Search private val viewModelScope: CoroutineScope
 ) : SearchEventHandler {
 
     override fun dispatchEvent(event: SearchScreenEvent) = when (event) {

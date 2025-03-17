@@ -3,7 +3,7 @@ package aa.mob.test.featureSearch.ui.search
 import aa.mob.test.domain.model.BreweryModel
 import aa.mob.test.featureSearch.event.search.SearchScreenEvent
 import aa.mob.test.featureSearch.model.search.SearchScreenUiModel
-import aa.mob.test.featureSearch.viewmodel.SearchScreenViewModel
+import aa.mob.test.featureSearch.viewmodel.search.SearchScreenViewModel
 import aa.mob.test.resources.theme.Color
 import aa.mob.test.resources.theme.Type
 import aa.mob.test.resources.theme.defaultGrid
@@ -149,8 +149,6 @@ fun SearchSuggestions(
                     color = Color.textWhite,
                     style = Type.bodyLarge,
                     modifier = Modifier
-                        .padding(vertical = defaultGrid.grid_3)
-                        .fillMaxWidth()
                         .clickable(onClick = {
                             onEvent.invoke(
                                 SearchScreenEvent.BreweryClicked(
@@ -159,6 +157,8 @@ fun SearchSuggestions(
                             )
                             goToBrewery.invoke(suggestion.id)
                         })
+                        .padding(vertical = defaultGrid.grid_3)
+                        .fillMaxWidth()
                 )
             }
             if (!isListExpanded) TextButton(

@@ -18,7 +18,8 @@ fun AppNavHost() {
             }
         }
         composable("details/{id}") {
-            DetailsScreen()
+            val id = it.arguments?.getString("id") ?: "Unknown"
+            DetailsScreen(breweryId = id) { navController.popBackStack() }
         }
     }
 }

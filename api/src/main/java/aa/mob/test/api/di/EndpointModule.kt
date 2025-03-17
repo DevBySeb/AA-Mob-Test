@@ -1,6 +1,6 @@
 package aa.mob.test.api.di
 
-import aa.mob.test.api.endpoint.SearchBreweryEndpoint
+import aa.mob.test.api.endpoint.BreweryEndpoint
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,6 +12,6 @@ import retrofit2.Retrofit
 object EndpointModule {
 
     @Provides
-    fun provideSearchBreweryEndpoint(retrofit: Retrofit): SearchBreweryEndpoint =
-        retrofit.create(SearchBreweryEndpoint::class.java)
+    fun provideSearchBreweryEndpoint(retrofit: Retrofit): BreweryEndpoint =
+        retrofit.create(BreweryEndpoint::class.java)
 }

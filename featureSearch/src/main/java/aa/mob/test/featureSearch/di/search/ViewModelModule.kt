@@ -19,6 +19,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
+import javax.inject.Qualifier
 
 @Module
 @InstallIn(ViewModelComponent::class)
@@ -39,18 +40,25 @@ interface ViewModelModule {
     companion object {
 
         @Provides
+        @Search
         @ViewModelScoped
         fun provideJob(): Job = SupervisorJob()
 
         @Provides
+        @Search
         @ViewModelScoped
         fun provideCoroutineDispatcher(): CoroutineDispatcher = Dispatchers.Main
 
         @Provides
+        @Search
         @ViewModelScoped
         fun provideCoroutineScope(
-            job: Job,
-            dispatcher: CoroutineDispatcher,
+            @Search job: Job,
+            @Search dispatcher: CoroutineDispatcher,
         ) = CoroutineScope(job + dispatcher)
     }
 }
+
+@Qualifier
+@Retention(AnnotationRetention.RUNTIME)
+annotation class Search

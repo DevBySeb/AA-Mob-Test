@@ -1,4 +1,4 @@
-package aa.mob.test.featureSearch.viewmodel
+package aa.mob.test.featureSearch.viewmodel.search
 
 import aa.mob.test.featureSearch.event.search.SearchScreenEvent
 import aa.mob.test.featureSearch.event.search.handler.SearchEventHandler

@@ -1,13 +1,11 @@
 package aa.mob.test.featureSearch.di.details
 
-import aa.mob.test.featureSearch.event.search.handler.DefaultSearchEventHandler
-import aa.mob.test.featureSearch.event.search.handler.SearchEventHandler
-import aa.mob.test.featureSearch.factory.search.DefaultSearchScreenStateFactory
-import aa.mob.test.featureSearch.factory.search.DefaultSearchScreenUiModelFactory
-import aa.mob.test.featureSearch.model.search.SearchScreenUiModel
-import aa.mob.test.featureSearch.state.search.SearchScreenState
-import aa.mob.test.featureSearch.state.search.provider.DefaultSearchScreenStateProvider
-import aa.mob.test.featureSearch.state.search.provider.SearchScreenStateProvider
+import aa.mob.test.featureSearch.event.details.handler.DefaultDetailsEventHandler
+import aa.mob.test.featureSearch.event.details.handler.DetailsEventHandler
+import aa.mob.test.featureSearch.factory.details.DefaultDetailsUiModelFactory
+import aa.mob.test.featureSearch.model.details.DetailsUiModel
+import aa.mob.test.featureSearch.state.details.DefaultDetailsScreenStateProvider
+import aa.mob.test.featureSearch.state.details.DetailsScreenStateProvider
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -19,41 +17,43 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
+import javax.inject.Qualifier
 
+@Module
+@InstallIn(ViewModelComponent::class)
 interface ViewModelModule {
 
-    @Module
-    @InstallIn(ViewModelComponent::class)
-    interface ViewModelModule {
+    @Binds
+    fun bindScreenStateProvider(provider: DefaultDetailsScreenStateProvider): DetailsScreenStateProvider
 
-        @Binds
-        fun bindScreenStateProvider(provider: DefaultSearchScreenStateProvider): SearchScreenStateProvider
+    @Binds
+    fun bindDetailsScreenUiModelFactory(factory: DefaultDetailsUiModelFactory): DetailsUiModel.Factory
 
-        @Binds
-        fun bindScreenStateFactory(factory: DefaultSearchScreenStateFactory): SearchScreenState.Factory
+    @Binds
+    fun bindDetailsEventHandler(handler: DefaultDetailsEventHandler): DetailsEventHandler
 
-        @Binds
-        fun bindSearchScreenUiModelFactory(factory: DefaultSearchScreenUiModelFactory): SearchScreenUiModel.Factory
+    companion object {
 
-        @Binds
-        fun bindSearchEventHandler(handler: DefaultSearchEventHandler): SearchEventHandler
+        @Provides
+        @Details
+        @ViewModelScoped
+        fun provideJob(): Job = SupervisorJob()
 
-        companion object {
+        @Provides
+        @Details
+        @ViewModelScoped
+        fun provideCoroutineDispatcher(): CoroutineDispatcher = Dispatchers.Main
 
-            @Provides
-            @ViewModelScoped
-            fun provideJob(): Job = SupervisorJob()
-
-            @Provides
-            @ViewModelScoped
-            fun provideCoroutineDispatcher(): CoroutineDispatcher = Dispatchers.Main
-
-            @Provides
-            @ViewModelScoped
-            fun provideCoroutineScope(
-                job: Job,
-                dispatcher: CoroutineDispatcher,
-            ) = CoroutineScope(job + dispatcher)
-        }
+        @Provides
+        @Details
+        @ViewModelScoped
+        fun provideCoroutineScope(
+            @Details job: Job,
+            @Details dispatcher: CoroutineDispatcher,
+        ) = CoroutineScope(job + dispatcher)
     }
 }
+
+@Qualifier
+@Retention(AnnotationRetention.RUNTIME)
+annotation class Details

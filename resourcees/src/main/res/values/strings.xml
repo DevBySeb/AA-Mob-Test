@@ -6,4 +6,6 @@
    <string name="tip_text">Search…</string>
    <string name="details_beverages">Beverages</string>
    <string name="details_address">Address</string>
+   <string name="search_history">History</string>
+   <string name="action_back">Back</string>
 </resources>

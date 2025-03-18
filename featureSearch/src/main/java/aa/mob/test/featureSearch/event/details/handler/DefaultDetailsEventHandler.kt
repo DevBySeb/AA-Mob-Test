@@ -4,10 +4,12 @@ import aa.mob.test.domain.useCase.GetBreweryUseCase
 import aa.mob.test.featureSearch.di.details.Details
 import aa.mob.test.featureSearch.event.details.DetailsEvent
 import aa.mob.test.featureSearch.state.details.DetailsScreenStateProvider
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@ViewModelScoped
 class DefaultDetailsEventHandler @Inject constructor(
     @Details private val viewModelScope: CoroutineScope,
     private val stateProvider: DetailsScreenStateProvider,

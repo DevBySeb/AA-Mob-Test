@@ -11,6 +11,7 @@ import aa.mob.test.resources.theme.defaultGrid
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -31,7 +32,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -56,11 +59,33 @@ fun DetailsComposable(uiState: DetailsUiModel, onGoBack: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.background)
             .padding(horizontal = defaultGrid.grid_4),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Icon(painter = painterResource(ResR.drawable.ic_slider), contentDescription = null)
+        TextButton(
+            onClick = onGoBack,
+            modifier = Modifier.align(Alignment.Start),
+            contentPadding = PaddingValues(0.dp)
+        ) {
+            Icon(
+                painter = painterResource(ResR.drawable.ic_chevron_left),
+                contentDescription = null,
+                tint = androidx.compose.ui.graphics.Color.Unspecified,
+                modifier = Modifier.padding(end = defaultGrid.grid_2)
+            )
+            Text(
+                stringResource(ResR.string.action_back).capitalize(Locale.current),
+                color = Color.textWhite,
+                style = Type.bodyLarge.copy(fontWeight = FontWeight.Normal)
+            )
+        }
+
+        Icon(
+            painter = painterResource(ResR.drawable.ic_slider),
+            tint = androidx.compose.ui.graphics.Color.Unspecified,
+            contentDescription = null,
+            modifier = Modifier.padding(top = defaultGrid.grid_10)
+        )
         uiState.breweryModel?.let { breweryModel ->
             Text(
                 breweryModel.name,
@@ -70,11 +95,11 @@ fun DetailsComposable(uiState: DetailsUiModel, onGoBack: () -> Unit) {
             )
 
             BreweryDetails(
-                modifier = Modifier.padding(top = defaultGrid.grid_10),
+                modifier = Modifier.padding(top = defaultGrid.grid_15),
                 breweryModel.name
             )
         }
-        BeveragesList(modifier = Modifier.padding(top = defaultGrid.grid_10), uiState.beverages)
+        BeveragesList(modifier = Modifier.padding(top = defaultGrid.grid_15), uiState.beverages)
 
         TextButton(
             modifier = Modifier
@@ -85,7 +110,7 @@ fun DetailsComposable(uiState: DetailsUiModel, onGoBack: () -> Unit) {
             colors = ButtonDefaults.buttonColors(containerColor = Color.buttonColorPrimary)
         ) {
             Text(
-                "Back",
+                stringResource(ResR.string.action_back),
                 color = Color.textWhite,
                 style = Type.bodyLarge.copy(fontWeight = FontWeight.Normal)
             )
@@ -148,7 +173,11 @@ fun BeveragesList(modifier: Modifier, beveragesList: List<BeverageModel>) {
 @Composable
 fun DetailsComposable_Preview() {
     val mockUiState = DetailsUiModel(
-        breweryModel = BreweryModel(id = "", name = "BreweryStreet 1234"),
+        breweryModel = BreweryModel(
+            id = "",
+            name = "BreweryStreet 1234",
+            address = " random address"
+        ),
         beverages = listOf(
             BeverageModel("Beer 50cl", price = "69 kr"),
             BeverageModel("Regular Pint 50cl", price = "69 kr"),

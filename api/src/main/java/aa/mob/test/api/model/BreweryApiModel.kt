@@ -9,4 +9,6 @@ data class BreweryApiModel(
     val id: String,
     @Json(name = "name")
     val name: String,
+    @Json(name = "address_1")
+    val address: String?,
 )

@@ -1,8 +1,10 @@
 package aa.mob.test.featureSearch.ui.search
 
+import aa.mob.test.domain.model.BreweryHistoryModel
 import aa.mob.test.domain.model.BreweryModel
 import aa.mob.test.featureSearch.event.search.SearchScreenEvent
 import aa.mob.test.featureSearch.model.search.SearchScreenUiModel
+import aa.mob.test.featureSearch.state.search.SearchScreenState
 import aa.mob.test.featureSearch.viewmodel.search.SearchScreenViewModel
 import aa.mob.test.resources.theme.Color
 import aa.mob.test.resources.theme.Type
@@ -10,15 +12,19 @@ import aa.mob.test.resources.theme.defaultGrid
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.input.TextFieldState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -29,6 +35,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -36,9 +43,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import aa.mob.test.resources.R as ResR
 
 @Composable
-fun SearchScreen(viewModel: SearchScreenViewModel = hiltViewModel(), goToBrewery: (String) -> Unit) {
+fun SearchScreen(
+    viewModel: SearchScreenViewModel = hiltViewModel(),
+    goToBrewery: (String) -> Unit
+) {
     val uiState = viewModel.screenState.collectAsState().value
-    SearchComposable(uiState = uiState, onEvent = {
+    SearchComposable(state = uiState, onEvent = {
         viewModel.dispatchEvent(it)
     }, goToBrewery = goToBrewery)
 
@@ -46,12 +56,14 @@ fun SearchScreen(viewModel: SearchScreenViewModel = hiltViewModel(), goToBrewery
 }
 
 @Composable
-fun SearchComposable(uiState: SearchScreenUiModel, onEvent: (SearchScreenEvent) -> Unit, goToBrewery: (String) -> Unit) {
-
+fun SearchComposable(
+    state: SearchScreenState,
+    onEvent: (SearchScreenEvent) -> Unit,
+    goToBrewery: (String) -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.background)
             .padding(horizontal = defaultGrid.grid_4),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
@@ -59,7 +71,7 @@ fun SearchComposable(uiState: SearchScreenUiModel, onEvent: (SearchScreenEvent) 
             painter = painterResource(ResR.drawable.ic_search),
             tint = androidx.compose.ui.graphics.Color.Unspecified,
             contentDescription = null,
-            modifier = Modifier.padding(top = defaultGrid.grid_10)
+            modifier = Modifier.padding(top = defaultGrid.grid_20)
         )
         // So I do know it's called a slider but virtually this has no logic,
         // so I decided to not bother with slider and its logic
@@ -67,7 +79,7 @@ fun SearchComposable(uiState: SearchScreenUiModel, onEvent: (SearchScreenEvent) 
             painter = painterResource(ResR.drawable.ic_slider),
             tint = androidx.compose.ui.graphics.Color.Unspecified,
             contentDescription = null,
-            modifier = Modifier.padding(top = defaultGrid.grid_3)
+            modifier = Modifier.padding(top = defaultGrid.grid_6)
         )
         Text(
             stringResource(ResR.string.search_for_brewery),
@@ -77,19 +89,33 @@ fun SearchComposable(uiState: SearchScreenUiModel, onEvent: (SearchScreenEvent) 
         )
         Search(
             modifier = Modifier.padding(top = defaultGrid.grid_10),
-            textFieldState = uiState.searchText,
+            textFieldState = state.uiModel.searchText,
             onEvent = onEvent
         )
-        SearchSuggestions(
-            modifier = Modifier.padding(top = defaultGrid.grid_3),
-            suggestionList = uiState.breweries,
-            onEvent = onEvent,
-            isListExpanded = uiState.isListExpanded,
-            goToBrewery = goToBrewery,
-        )
+        when {
+            state.uiModel.breweries.isNotEmpty() && state.uiModel.searchText.text.isNotEmpty() -> {
+                SearchSuggestions(
+                    modifier = Modifier.padding(top = defaultGrid.grid_3),
+                    suggestionList = state.uiModel.breweries,
+                    onEvent = onEvent,
+                    isListExpanded = state.uiModel.isListExpanded,
+                    goToBrewery = goToBrewery,
+                )
+            }
+
+            state.breweriesHistory.isNotEmpty() -> {
+                SearchHistory(
+                    modifier = Modifier.padding(top = defaultGrid.grid_10),
+                    historyList = state.breweriesHistory,
+                    onEvent = onEvent,
+                    goToBrewery = goToBrewery,
+                )
+            }
+
+            else -> Unit
+        }
     }
 }
-
 
 @Composable
 fun Search(
@@ -127,6 +153,62 @@ fun Search(
 }
 
 @Composable
+fun SearchHistory(
+    modifier: Modifier,
+    historyList: List<BreweryHistoryModel>,
+    onEvent: (SearchScreenEvent) -> Unit,
+    goToBrewery: (String) -> Unit
+) {
+    Column(modifier.verticalScroll(rememberScrollState())) {
+        Text(
+            stringResource(ResR.string.search_history),
+            style = Type.bodyLarge,
+            color = Color.textWhite,
+            modifier = Modifier.padding(bottom = defaultGrid.grid_4)
+        )
+        historyList.forEach { item ->
+            SearchHistoryItem(item, onEvent, goToBrewery)
+        }
+    }
+}
+
+@Composable
+fun SearchHistoryItem(
+    item: BreweryHistoryModel, onEvent: (SearchScreenEvent) -> Unit,
+    goToBrewery: (String) -> Unit
+) {
+    Row(
+        modifier = Modifier
+            .clickable(onClick = {
+                onEvent.invoke(
+                    SearchScreenEvent.BreweryClicked(
+                        breweryId = item.id,
+                        breweryName = item.name
+                    )
+                )
+                goToBrewery.invoke(item.id)
+            })
+            .fillMaxWidth()
+            .padding(vertical = defaultGrid.grid_1),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Column(verticalArrangement = Arrangement.spacedBy(defaultGrid.grid_2)) {
+            Text(
+                item.name,
+                style = Type.bodyLarge.copy(fontWeight = FontWeight.Normal),
+                color = androidx.compose.ui.graphics.Color.White
+            )
+            Text(item.date, style = Type.bodyNormal, color = Color.tipColor)
+        }
+        Icon(
+            painter = painterResource(ResR.drawable.ic_chevron_right),
+            contentDescription = null,
+            tint = androidx.compose.ui.graphics.Color.Unspecified
+        )
+    }
+}
+
+@Composable
 fun SearchSuggestions(
     modifier: Modifier,
     suggestionList: List<BreweryModel>,
@@ -137,6 +219,7 @@ fun SearchSuggestions(
     if (suggestionList.isNotEmpty()) {
         Column(
             modifier = modifier
+                .verticalScroll(rememberScrollState())
                 .background(
                     color = Color.autocompleteBackground,
                     shape = RoundedCornerShape(6.dp)
@@ -152,7 +235,8 @@ fun SearchSuggestions(
                         .clickable(onClick = {
                             onEvent.invoke(
                                 SearchScreenEvent.BreweryClicked(
-                                    suggestion.id
+                                    breweryId = suggestion.id,
+                                    breweryName = suggestion.name
                                 )
                             )
                             goToBrewery.invoke(suggestion.id)
@@ -182,14 +266,17 @@ fun SearchSuggestions(
 @Preview
 @Composable
 fun SearchComposableExpanded_Preview() {
-    val mockScreenState = SearchScreenUiModel(
-        searchText = TextFieldState("search"),
-        isListExpanded = false,
-        breweries = listOf(
-            BreweryModel(id = "0", name = "Second Chance Beer Company"),
-            BreweryModel(id = "1", name = "Ballast Point Brewing Company")
-        ),
-        searchQuery = ""
+    val mockScreenState = SearchScreenState(
+        uiModel =
+        SearchScreenUiModel(
+            searchText = TextFieldState("search"),
+            isListExpanded = false,
+            breweries = listOf(
+                BreweryModel(id = "0", name = "Second Chance Beer Company", address = ""),
+                BreweryModel(id = "1", name = "Ballast Point Brewing Company", address = "")
+            ),
+            searchQuery = ""
+        ), breweriesHistory = emptyList()
     )
     SearchComposable(mockScreenState, goToBrewery = {}, onEvent = {})
 }
@@ -197,14 +284,17 @@ fun SearchComposableExpanded_Preview() {
 @Preview
 @Composable
 fun SearchComposableCollapsed_Preview() {
-    val mockScreenState = SearchScreenUiModel(
-        searchText = TextFieldState("search"),
-        isListExpanded = false,
-        breweries = listOf(
-            BreweryModel(id = "0", name = "Second Chance Beer Company"),
-            BreweryModel(id = "1", name = "Ballast Point Brewing Company")
-        ),
-        searchQuery = ""
+    val mockScreenState = SearchScreenState(
+        uiModel =
+        SearchScreenUiModel(
+            searchText = TextFieldState("search"),
+            isListExpanded = false,
+            breweries = listOf(
+                BreweryModel(id = "0", name = "Second Chance Beer Company", address = ""),
+                BreweryModel(id = "1", name = "Ballast Point Brewing Company", address = "")
+            ),
+            searchQuery = ""
+        ), breweriesHistory = emptyList()
     )
     SearchComposable(mockScreenState, goToBrewery = {}, onEvent = {})
 }
@@ -212,11 +302,18 @@ fun SearchComposableCollapsed_Preview() {
 @Preview
 @Composable
 fun SearchComposableEmptySearch_Preview() {
-    val mockScreenState = SearchScreenUiModel(
-        searchText = TextFieldState("search"),
-        isListExpanded = false,
-        breweries = listOf(),
-        searchQuery = ""
+    val mockScreenState = SearchScreenState(
+        uiModel =
+        SearchScreenUiModel(
+            searchText = TextFieldState(""),
+            isListExpanded = false,
+            breweries = emptyList(),
+            searchQuery = ""
+        ),
+        breweriesHistory = listOf(
+            BreweryHistoryModel("", "random brewery 1", date = "2025-02-20 08:00"),
+            BreweryHistoryModel("", "random brewery 2", date = "2025-02-20 08:00")
+        )
     )
     SearchComposable(mockScreenState, goToBrewery = {}, onEvent = {})
 }

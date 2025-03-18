@@ -8,6 +8,7 @@ import javax.inject.Inject
 class ApiToDomainMapper @Inject constructor() : Mapper<BreweryApiModel, BreweryModel> {
     override fun map(source: BreweryApiModel): BreweryModel = BreweryModel(
         id = source.id,
-        name = source.name
+        name = source.name,
+        address = source.address ?: "Unknown"
     )
 }

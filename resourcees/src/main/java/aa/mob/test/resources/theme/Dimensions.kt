@@ -20,6 +20,8 @@ class Grid(
     val grid_7: Dp,
     val grid_7_5: Dp,
     val grid_10: Dp,
+    val grid_15: Dp,
+    val grid_20: Dp,
 )
 
 val defaultGrid: Grid = Grid(
@@ -38,4 +40,6 @@ val defaultGrid: Grid = Grid(
     grid_7 = 28.dp,
     grid_7_5 = 30.dp,
     grid_10 = 40.dp,
+    grid_15 = 60.dp,
+    grid_20 = 80.dp
 )

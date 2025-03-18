@@ -14,14 +14,6 @@ android {
     buildFeatures {
         compose = true
     }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_18
-        targetCompatibility = JavaVersion.VERSION_18
-    }
-    kotlinOptions {
-        jvmTarget = "18"
-    }
 }
 
 dependencies {

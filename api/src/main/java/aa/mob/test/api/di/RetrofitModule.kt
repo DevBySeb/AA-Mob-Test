@@ -30,7 +30,7 @@ object RetrofitModule {
         appContext.getString(ResR.string.base_api_url)
 
     @Provides
-    fun provideMoshi() = Moshi.Builder()
+    fun provideMoshi(): Moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
 

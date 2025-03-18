@@ -18,7 +18,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Scaffold(modifier = Modifier.fillMaxSize(), containerColor = Color.background) { innerPadding ->
+            Scaffold(
+                modifier = Modifier.fillMaxSize(),
+                containerColor = Color.background
+            ) { innerPadding ->
                 AppNavHost(Modifier.padding(innerPadding))
             }
         }

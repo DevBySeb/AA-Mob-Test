@@ -2,7 +2,6 @@ package aa.mob.test.featureSearch.viewmodel.search
 
 import aa.mob.test.featureSearch.event.search.SearchScreenEvent
 import aa.mob.test.featureSearch.event.search.handler.SearchEventHandler
-import aa.mob.test.featureSearch.model.search.SearchScreenUiModel
 import aa.mob.test.featureSearch.state.search.SearchScreenState
 import aa.mob.test.featureSearch.state.search.provider.SearchScreenStateProvider
 import androidx.lifecycle.ViewModel
@@ -14,7 +13,7 @@ import javax.inject.Inject
 class SearchScreenViewModel @Inject constructor(
     searchScreenStateProvider: SearchScreenStateProvider,
     private val searchEventHandler: SearchEventHandler
-): ViewModel() {
+) : ViewModel() {
 
     val screenState: StateFlow<SearchScreenState> = searchScreenStateProvider.screenState
 

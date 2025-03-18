@@ -11,7 +11,7 @@ import javax.inject.Inject
 class DetailsScreenViewModel @Inject constructor(
     detailsScreenStateProvider: DetailsScreenStateProvider,
     private val detailsEventHandler: DetailsEventHandler
-): ViewModel() {
+) : ViewModel() {
 
     val screenState = detailsScreenStateProvider.screenState
 

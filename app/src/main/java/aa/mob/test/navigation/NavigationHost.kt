@@ -16,11 +16,11 @@ fun AppNavHost(modifier: Modifier) {
     NavHost(navController = navController, startDestination = Destination.Search.path, modifier = modifier) {
         composable(Destination.Search.path) {
             SearchScreen {
-                navController.navigate(Destination.Details(it).getUri())
+                navController.navigate(Destination.Details.navigate(it))
             }
         }
-        composable("details/{id}") {
-            val id = it.arguments?.getString("id") ?: "Unknown"
+        composable(Destination.Details.path) {
+            val id = it.arguments?.getString(ID_ARGUMENT) ?: ""
             DetailsScreen(breweryId = id) { navController.popBackStack() }
         }
     }

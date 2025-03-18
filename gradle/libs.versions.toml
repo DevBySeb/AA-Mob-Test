@@ -10,7 +10,6 @@ coreKtx = "1.15.0"
 junit = "4.13.2"
 androidx-junit-version = "1.2.1"
 appcompat-version = "1.7.0"
-material-version = "1.12.0"
 hilt-version = "2.55"
 hilt-plugin-version = "2.44"
 hilt-compose-navigation-version = "1.2.0"
@@ -19,7 +18,6 @@ compose-bom-version = "2025.03.00"
 activityCompose-version = "1.10.1"
 ksp-version = "2.1.10-1.0.29"
 room-version = "2.7.0-rc02"
-espressoCoreVersion = "3.6.1"
 navigationComposeVersion = "2.8.9"
 moshi-version = "1.15.0"
 
@@ -28,7 +26,6 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-junit-version" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat-version" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material-version" }
 hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt-version" }
 hiltAndroidCompiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt-version" }
 hiltPlugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt-version" }
@@ -45,7 +42,6 @@ composeUiTooling = { module = "androidx.compose.ui:ui-tooling" }
 room = { module = "androidx.room:room-runtime", version.ref = "room-version" }
 roomKtx = { module = "androidx.room:room-ktx", version.ref = "room-version" }
 roomCompiler = { module = "androidx.room:room-compiler", version.ref = "room-version" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCoreVersion" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationComposeVersion" }
 
 [plugins]

@@ -28,8 +28,12 @@ class DefaultSearchScreenStateProvider @Inject constructor(
     override val uiState: StateFlow<SearchScreenUiModel> = _uiState
 
     override val screenState: StateFlow<SearchScreenState> =
-        _uiState.combine(getBreweryHistoryUseCase.invoke()) {uiState, breweryHistory ->
+        _uiState.combine(getBreweryHistoryUseCase.invoke()) { uiState, breweryHistory ->
             screenStateFactory.create(uiState, breweryHistory)
-        }.stateIn(viewModelScope, SharingStarted.Eagerly, screenStateFactory.createEmpty(uiState.value))
+        }.stateIn(
+            viewModelScope,
+            SharingStarted.Eagerly,
+            screenStateFactory.createEmpty(uiState.value)
+        )
 
 }

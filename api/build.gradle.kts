@@ -15,8 +15,6 @@ android {
 dependencies {
     implementation(project(":resourcees"))
     implementation(project(":domain"))
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
     implementation(libs.retrofit)
     implementation(libs.retrofitMoshi)
     implementation(libs.moshiKotlin)

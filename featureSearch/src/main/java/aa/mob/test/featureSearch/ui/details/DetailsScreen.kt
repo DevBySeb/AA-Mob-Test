@@ -8,7 +8,6 @@ import aa.mob.test.featureSearch.viewmodel.details.DetailsScreenViewModel
 import aa.mob.test.resources.theme.Color
 import aa.mob.test.resources.theme.Type
 import aa.mob.test.resources.theme.defaultGrid
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues

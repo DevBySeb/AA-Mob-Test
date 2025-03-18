@@ -7,6 +7,5 @@ object Color {
     val tipColor = Color(0xFF929292)
     val background = Color(0xFF121212)
     val autocompleteBackground = Color(0xFF353535)
-    val buttonColorSecondary = Color(0xFFB8B8B8)
     val buttonColorPrimary = Color(0xFF304FFE)
 }

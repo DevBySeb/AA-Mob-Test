@@ -14,7 +14,6 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 interface MapperModule {
 
-
     @Binds
     fun bindDbToDomainMapper(mapper: DbToDomainMapper): Mapper<BreweryHistoryDbModel, BreweryHistoryModel>
 

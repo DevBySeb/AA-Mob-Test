@@ -9,6 +9,9 @@ class DefaultSearchScreenStateFactory @Inject constructor() : SearchScreenState.
     override fun createEmpty(emptyUiModel: SearchScreenUiModel): SearchScreenState =
         SearchScreenState(emptyList(), emptyUiModel)
 
-    override fun create(uiModel: SearchScreenUiModel, breweryHistoryList: List<BreweryHistoryModel>): SearchScreenState =
-       SearchScreenState(uiModel = uiModel, breweriesHistory = breweryHistoryList)
+    override fun create(
+        uiModel: SearchScreenUiModel,
+        breweryHistoryList: List<BreweryHistoryModel>
+    ): SearchScreenState =
+        SearchScreenState(uiModel = uiModel, breweriesHistory = breweryHistoryList)
 }

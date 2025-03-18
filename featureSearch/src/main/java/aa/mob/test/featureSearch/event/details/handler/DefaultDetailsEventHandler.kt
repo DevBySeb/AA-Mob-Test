@@ -24,6 +24,4 @@ class DefaultDetailsEventHandler @Inject constructor(
             Unit
         }
     }
-
-
 }

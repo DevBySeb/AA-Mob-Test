@@ -28,11 +28,12 @@ class DefaultSearchEventHandler @Inject constructor(
                         getSuggestedBreweriesUseCase.invoke(searchQuery, 2)
 
                     searchScreenStateProvider.updateUiState(
-                        copy(
+                        searchScreenStateProvider.screenState.value.uiModel.copy(
                             breweries = breweries + additionalBreweries,
                             isListExpanded = true
                         )
                     )
+
                 }
                 Unit
             }

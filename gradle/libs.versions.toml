@@ -1,0 +1,58 @@
+[versions]
+
+minSdk = "29"
+targetSdk = "35"
+compileSdk = "35"
+
+agp = "8.6.1"
+kotlin-version = "2.1.10"
+coreKtx = "1.15.0"
+junit = "4.13.2"
+androidx-junit-version = "1.2.1"
+appcompat-version = "1.7.0"
+hilt-version = "2.55"
+hilt-plugin-version = "2.44"
+hilt-compose-navigation-version = "1.2.0"
+retrofit-version = "2.9.0"
+compose-bom-version = "2025.03.00"
+activityCompose-version = "1.10.1"
+ksp-version = "2.1.10-1.0.29"
+mockk-version = "1.13.16"
+coroutinesTest-version = "1.10.1"
+room-version = "2.7.0-rc02"
+navigationComposeVersion = "2.8.9"
+moshi-version = "1.15.0"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-junit-version" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat-version" }
+hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt-version" }
+hiltAndroidCompiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt-version" }
+hiltPlugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt-version" }
+hiltNavigationCompose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-compose-navigation-version" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit-version" }
+moshiKotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi-version" }
+retrofitMoshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit-version" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom-version" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose-version" }
+composeMaterial3 = { module = "androidx.compose.material3:material3" }
+composeUi = { module = "androidx.compose.ui:ui" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk-version" }
+coroutinesTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutinesTest-version" }
+composeRuntime = { module = "androidx.compose.runtime:runtime" }
+composeUiTooling = { module = "androidx.compose.ui:ui-tooling" }
+room = { module = "androidx.room:room-runtime", version.ref = "room-version" }
+roomKtx = { module = "androidx.room:room-ktx", version.ref = "room-version" }
+roomCompiler = { module = "androidx.room:room-compiler", version.ref = "room-version" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationComposeVersion" }
+
+[plugins]
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp-version" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-version" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt-plugin-version" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin-version" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+

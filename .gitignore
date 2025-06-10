@@ -1,0 +1,78 @@
+# ==============================
+# Xcode
+# ==============================
+*.xcuserstate
+**/xcuserdata/
+*.moved-aside
+*.xcscmblueprint
+
+# Workspace data
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+
+# IDE configs
+*.idea/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/xcshareddata/WorkspaceSettings.xcsettings
+
+# Build products
+DerivedData/
+build/
+*.ipa
+*.app.dSYM
+*.dSYM.zip
+
+# User-specific
+*.swp
+*~.nib
+*.orig
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# ==============================
+# Swift & SwiftPM
+# ==============================
+.swiftpm/
+.build/
+
+# ==============================
+# CocoaPods
+# ==============================
+Pods/
+Podfile.lock
+pod-install.log
+
+# ==============================
+# Carthage
+# ==============================
+Carthage/
+Carthage.build/
+
+# ==============================
+# Fastlane
+# ==============================
+fastlane/report.xml
+fastlane/screenshots/
+fastlane/test_output/
+fastlane/.env
+
+# ==============================
+# Misc
+# ==============================
+*.log
+*.DS_Store
+*.env
+*.key
+*.pem
+
+# Package resolved file (optional)
+Package.resolved
+
+# Playground stuff
+timeline.xctimeline
+playground.xcworkspace
+
+# Archive files
+*.xcarchive

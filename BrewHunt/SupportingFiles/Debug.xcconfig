@@ -1,0 +1,15 @@
+//
+//  Debug.xcconfig
+//  BrewHunt
+//
+//  Created by Samet Berberoğlu on 2025-06-10.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+API_SCHEME = https
+API_BASE_URL = api.openbrewerydb.org
+
+APP_ENV = DEBUG
+OTHER_SWIFT_FLAGS = -DDEBUG

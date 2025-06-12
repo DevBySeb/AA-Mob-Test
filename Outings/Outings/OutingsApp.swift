@@ -10,22 +10,22 @@ import SwiftData
 
 @main
 struct OutingsApp: App {
+    
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
+        let schema = Schema([Shop.self])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
+        
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
-
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            // Dependency injection with default values
+            MainView(viewModel: ShopVM(repo: ShopRepo()))
         }
         .modelContainer(sharedModelContainer)
     }

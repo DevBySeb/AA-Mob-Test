@@ -6,6 +6,21 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4949E3482DFA5AD5000DB71F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949E33F2DFA5AD5000DB71F /* MainView.swift */; };
+		4949E34A2DFA5AD5000DB71F /* OutingsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949E3412DFA5AD5000DB71F /* OutingsApp.swift */; };
+		4949E34B2DFA5AD5000DB71F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4949E3422DFA5AD5000DB71F /* Preview Assets.xcassets */; };
+		4949E34C2DFA5AD5000DB71F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4949E3442DFA5AD5000DB71F /* Assets.xcassets */; };
+		4949E34D2DFA5AD5000DB71F /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4949E3452DFA5AD5000DB71F /* Poppins-Regular.ttf */; };
+		4949E34E2DFA5AD5000DB71F /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4949E3462DFA5AD5000DB71F /* Poppins-SemiBold.ttf */; };
+		4949E3522DFA6641000DB71F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949E3512DFA6641000DB71F /* Extensions.swift */; };
+		4949E3542DFA66E1000DB71F /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949E3532DFA66E1000DB71F /* Shop.swift */; };
+		4949E3562DFA673B000DB71F /* ShopRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949E3552DFA673B000DB71F /* ShopRepo.swift */; };
+		4949E3582DFA67E7000DB71F /* ShopVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949E3572DFA67E7000DB71F /* ShopVM.swift */; };
+		4949E35A2DFA69E8000DB71F /* Shop.json in Resources */ = {isa = PBXBuildFile; fileRef = 4949E3592DFA69E8000DB71F /* Shop.json */; };
+		4949E35C2DFA6BCA000DB71F /* ShopDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949E35B2DFA6BCA000DB71F /* ShopDetailsView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		49549BB52DF45ACE00D340AF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,17 +39,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4949E33F2DFA5AD5000DB71F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		4949E3412DFA5AD5000DB71F /* OutingsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutingsApp.swift; sourceTree = "<group>"; };
+		4949E3422DFA5AD5000DB71F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4949E3442DFA5AD5000DB71F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4949E3452DFA5AD5000DB71F /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		4949E3462DFA5AD5000DB71F /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		4949E3502DFA5B9C000DB71F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4949E3512DFA6641000DB71F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4949E3532DFA66E1000DB71F /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		4949E3552DFA673B000DB71F /* ShopRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRepo.swift; sourceTree = "<group>"; };
+		4949E3572DFA67E7000DB71F /* ShopVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopVM.swift; sourceTree = "<group>"; };
+		4949E3592DFA69E8000DB71F /* Shop.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Shop.json; sourceTree = "<group>"; };
+		4949E35B2DFA6BCA000DB71F /* ShopDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailsView.swift; sourceTree = "<group>"; };
 		49549BA22DF45ACC00D340AF /* Outings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Outings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49549BB42DF45ACE00D340AF /* OutingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OutingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49549BBE2DF45ACE00D340AF /* OutingsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OutingsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		49549BA42DF45ACC00D340AF /* Outings */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Outings;
-			sourceTree = "<group>";
-		};
 		49549BB72DF45ACE00D340AF /* OutingsTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = OutingsTests;
@@ -72,10 +95,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4949E3432DFA5AD5000DB71F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4949E3422DFA5AD5000DB71F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4949E3472DFA5AD5000DB71F /* Outings */ = {
+			isa = PBXGroup;
+			children = (
+				4949E3412DFA5AD5000DB71F /* OutingsApp.swift */,
+				4949E33F2DFA5AD5000DB71F /* MainView.swift */,
+				4949E35B2DFA6BCA000DB71F /* ShopDetailsView.swift */,
+				4949E3572DFA67E7000DB71F /* ShopVM.swift */,
+				4949E3552DFA673B000DB71F /* ShopRepo.swift */,
+				4949E3532DFA66E1000DB71F /* Shop.swift */,
+				4949E3592DFA69E8000DB71F /* Shop.json */,
+				4949E3512DFA6641000DB71F /* Extensions.swift */,
+				4949E3432DFA5AD5000DB71F /* Preview Content */,
+				4949E34F2DFA5B1D000DB71F /* Fonts */,
+				4949E3442DFA5AD5000DB71F /* Assets.xcassets */,
+				4949E3502DFA5B9C000DB71F /* Info.plist */,
+			);
+			path = Outings;
+			sourceTree = "<group>";
+		};
+		4949E34F2DFA5B1D000DB71F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4949E3452DFA5AD5000DB71F /* Poppins-Regular.ttf */,
+				4949E3462DFA5AD5000DB71F /* Poppins-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		49549B992DF45ACC00D340AF = {
 			isa = PBXGroup;
 			children = (
-				49549BA42DF45ACC00D340AF /* Outings */,
+				4949E3472DFA5AD5000DB71F /* Outings */,
 				49549BB72DF45ACE00D340AF /* OutingsTests */,
 				49549BC12DF45ACE00D340AF /* OutingsUITests */,
 				49549BA32DF45ACC00D340AF /* Products */,
@@ -106,9 +165,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				49549BA42DF45ACC00D340AF /* Outings */,
 			);
 			name = Outings;
 			packageProductDependencies = (
@@ -212,6 +268,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4949E34B2DFA5AD5000DB71F /* Preview Assets.xcassets in Resources */,
+				4949E34C2DFA5AD5000DB71F /* Assets.xcassets in Resources */,
+				4949E35A2DFA69E8000DB71F /* Shop.json in Resources */,
+				4949E34D2DFA5AD5000DB71F /* Poppins-Regular.ttf in Resources */,
+				4949E34E2DFA5AD5000DB71F /* Poppins-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +297,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4949E3482DFA5AD5000DB71F /* MainView.swift in Sources */,
+				4949E3522DFA6641000DB71F /* Extensions.swift in Sources */,
+				4949E34A2DFA5AD5000DB71F /* OutingsApp.swift in Sources */,
+				4949E3562DFA673B000DB71F /* ShopRepo.swift in Sources */,
+				4949E3582DFA67E7000DB71F /* ShopVM.swift in Sources */,
+				4949E35C2DFA6BCA000DB71F /* ShopDetailsView.swift in Sources */,
+				4949E3542DFA66E1000DB71F /* Shop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +467,7 @@
 				DEVELOPMENT_TEAM = 43UNBQF5Z9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Outings/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,6 +497,7 @@
 				DEVELOPMENT_TEAM = 43UNBQF5Z9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Outings/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

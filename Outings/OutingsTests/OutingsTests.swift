@@ -8,10 +8,21 @@
 import Testing
 @testable import Outings
 
-struct OutingsTests {
 
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+struct ShopVMTests {
+    
+    @Test
+    func testShopVM() async throws {
+        
+        let shopVM = ShopVM(repo: ShopRepoMock())
+        
+        // Pre-run expectations:
+        #expect(shopVM.shops.isEmpty == true)
+        
+        await shopVM.searchShops(query: "Fun")
+        #expect(shopVM.shops.count > 1)
+        #expect(shopVM.shops[0].city == "Fort Collins")
     }
-
+    
+    
 }

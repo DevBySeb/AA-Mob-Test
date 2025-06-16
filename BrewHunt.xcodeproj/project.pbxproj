@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B133559F2DFA19A4004B0535 /* SBNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = B133559E2DFA19A4004B0535 /* SBNetworking */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		B17576E32DF8CD3900AB8CE0 /* BrewHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrewHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B133559F2DFA19A4004B0535 /* SBNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = BrewHunt;
 			packageProductDependencies = (
+				B133559E2DFA19A4004B0535 /* SBNetworking */,
 			);
 			productName = BrewHunt;
 			productReference = B17576E32DF8CD3900AB8CE0 /* BrewHunt.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = B17576DA2DF8CD3900AB8CE0;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B133559D2DFA19A4004B0535 /* XCRemoteSwiftPackageReference "SBNetworking" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B17576E42DF8CD3900AB8CE0 /* Products */;
 			projectDirPath = "";
@@ -341,6 +350,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B133559D2DFA19A4004B0535 /* XCRemoteSwiftPackageReference "SBNetworking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/berberoglus/SBNetworking.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B133559E2DFA19A4004B0535 /* SBNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B133559D2DFA19A4004B0535 /* XCRemoteSwiftPackageReference "SBNetworking" */;
+			productName = SBNetworking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B17576DB2DF8CD3900AB8CE0 /* Project object */;
 }

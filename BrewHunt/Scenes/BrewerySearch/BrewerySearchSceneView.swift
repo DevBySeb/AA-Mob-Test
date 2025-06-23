@@ -12,33 +12,35 @@ struct BrewerySearchSceneView: View {
     @State private var viewModel = BrewerySearchViewModel()
 
     var body: some View {
-        VStack(spacing: .zero) {
-            Image(.magnifierIcon)
-                .padding(.bottom, 26.0)
+        NavigationStack {
+            VStack(spacing: .zero) {
+                Image(.magnifierIcon)
+                    .padding(.bottom, 26.0)
 
-            Image(.sliderIndicator)
-                .padding(.bottom, 35.0)
+                Image(.sliderIndicator)
+                    .padding(.bottom, 35.0)
 
-            Text("Search for a brewery")
-                .font(.poppinsSemiBold(size: 24.0))
-                .foregroundStyle(Color.bhPrimaryText)
-                .multilineTextAlignment(.center)
-                .padding(.bottom, 43.0)
+                Text("Search for a brewery")
+                    .font(.poppinsSemiBold(size: 24.0))
+                    .foregroundStyle(Color.bhPrimaryText)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, 43.0)
 
-            BrewerySearchBar(
-                searchText: $viewModel.searchText,
-                placeholder: "Search..."
-            )
-            .padding(.horizontal, 16.0)
+                BrewerySearchBar(
+                    searchText: $viewModel.searchText,
+                    placeholder: "Search..."
+                )
+                .padding(.horizontal, 16.0)
 
-            // Dynamic content based on state
-            dynamicContentView
-                .padding(.top, 12.0)
+                // Dynamic content based on state
+                dynamicContentView
+                    .padding(.top, 12.0)
+            }
+            .frame(maxHeight: .infinity, alignment: .top)
+            .padding(.top, 82.0)
+            .background(Color.bhBackground)
+            .dismissKeyboardOnTap()
         }
-        .frame(maxHeight: .infinity, alignment: .top)
-        .padding(.top, 82.0)
-        .background(Color.bhBackground)
-        .dismissKeyboardOnTap()
         .onAppear {
             viewModel.setModelContext(modelContext)
         }

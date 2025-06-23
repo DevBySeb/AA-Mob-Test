@@ -59,10 +59,7 @@ private extension BrewerySearchResultsView {
     }
     
     func resultItemButton(for brewery: BreweryItemPresenter) -> some View {
-        Button {
-            viewModel.saveBrewery(brewery)
-            // TODO: 🔥 Navigate to brewery details
-        } label: {
+        NavigationLink(destination: BreweryDetailView(brewery: brewery)) {
             Text(brewery.name)
                 .font(.poppinsSemiBold(size: 16.0))
                 .multilineTextAlignment(.leading)
@@ -70,5 +67,11 @@ private extension BrewerySearchResultsView {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 12.0)
         }
+        .buttonStyle(PlainButtonStyle())
+        .simultaneousGesture(
+            TapGesture().onEnded {
+                viewModel.saveBrewery(brewery)
+            }
+        )
     }
 }

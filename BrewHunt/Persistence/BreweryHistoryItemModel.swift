@@ -18,14 +18,8 @@ final class BreweryHistoryItemModel {
     var name: String
     var breweryType: String
     var address1: String?
-    var address2: String?
-    var address3: String?
     var city: String?
-    var stateProvince: String?
-    var postalCode: String?
     var country: String?
-    var longitude: Double?
-    var latitude: Double?
     var phone: String?
     var websiteURL: String?
     var state: String
@@ -41,14 +35,8 @@ final class BreweryHistoryItemModel {
         self.name = breweryItem.name
         self.breweryType = breweryItem.breweryType.rawValue
         self.address1 = breweryItem.address1
-        self.address2 = breweryItem.address2
-        self.address3 = breweryItem.address3
         self.city = breweryItem.city
-        self.stateProvince = breweryItem.stateProvince
-        self.postalCode = breweryItem.postalCode
         self.country = breweryItem.country
-        self.longitude = breweryItem.longitude
-        self.latitude = breweryItem.latitude
         self.phone = breweryItem.phone
         self.websiteURL = breweryItem.websiteURL
         self.state = breweryItem.state

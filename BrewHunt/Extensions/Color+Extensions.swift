@@ -42,6 +42,11 @@ extension Color {
     /// RGB: (177, 177, 177) - #B1B1B1
     static let bhBorder = Color(red: 177, green: 177, blue: 177)
 
+    // MARK: - Button Colors
+
+    /// Primary button color - Blue
+    /// RGB: (48, 79, 254) - #304FFE
+    static let bhButtonBlue = Color(red: 48, green: 79, blue: 254)
 }
 
 extension Color {

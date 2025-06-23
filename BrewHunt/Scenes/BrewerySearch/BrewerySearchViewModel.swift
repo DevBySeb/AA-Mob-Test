@@ -25,15 +25,16 @@ final class BrewerySearchViewModel: PersistenceProtocol {
     private(set) var searchResults: [BreweryItemPresenter] = []
     private(set) var showAllResults: Bool = false
 
-    var searchText: String = "" {
-        didSet {
-            debounceSearch()
-        }
-    }
-
     private let httpClient = HTTPClientWrapper().client
     private(set) var modelContext: ModelContext?
     private var debounceTimer: Timer?
+
+    var searchText: String = "" {
+        didSet {
+            if oldValue == searchText { return }
+            debounceSearch()
+        }
+    }
 
     // MARK: - Computed Properties
 

@@ -6,5 +6,12 @@
 	<string>$(API_BASE_URL)</string>
 	<key>API_SCHEME</key>
 	<string>$(API_SCHEME)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Poppins-Regular.ttf</string>
+		<string>Poppins-Bold.ttf</string>
+		<string>Poppins-Medium.ttf</string>
+		<string>Poppins-Semibold.ttf</string>
+	</array>
 </dict>
 </plist>

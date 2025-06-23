@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct BrewHuntApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BrewerySearchSceneView()
         }
+        .modelContainer(for: BreweryHistoryItemModel.self)
     }
 }

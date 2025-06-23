@@ -19,6 +19,8 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"SupportingFiles/BrewHunt-Info.plist",
+				SupportingFiles/Debug.xcconfig,
+				SupportingFiles/Release.xcconfig,
 			);
 			target = B17576E22DF8CD3900AB8CE0 /* BrewHunt */;
 		};
@@ -97,7 +99,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1630;
-				LastUpgradeCheck = 1630;
+				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					B17576E22DF8CD3900AB8CE0 = {
 						CreatedOnToolsVersion = 16.3;

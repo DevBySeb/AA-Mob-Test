@@ -14,10 +14,10 @@ struct BreweryItem: Decodable, Identifiable {
     let address1: String?
     let address2: String?
     let address3: String?
-    let city: String
-    let stateProvince: String
-    let postalCode: String
-    let country: String
+    let city: String?
+    let stateProvince: String?
+    let postalCode: String?
+    let country: String?
     let longitude: Double?
     let latitude: Double?
     let phone: String?

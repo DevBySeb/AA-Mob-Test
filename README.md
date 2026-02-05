@@ -5,7 +5,7 @@
 ### Pre-requisites
 
 1. Fork the repository.
-2. Create an Android (Kotlin) or iOS (Swift) application in the forked repository.
+2. Create an application in your given programming language (Android (Kotlin), iOS (Swift) or Frontend (Angular)) application in the forked repository.
 3. Name the branch `feature/FRAMEWORK_FIRSTNAME-LASTNAME`, e.g. `feature/KOTLIN_SEBASTIAN-PERSSON`.
 
 ### Task
